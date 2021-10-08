@@ -1,0 +1,509 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #312747;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+header .logo {
+  position: relative;
+  color: #fff;
+  font-size: 28px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li {
+  list-style: none;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+header ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.2s;
+  position: relative;
+}
+header ul li a::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  bottom: -5px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.3s ease-in-out;
+}
+
+header ul li a:hover {
+  color: #ff0083;
+}
+
+header ul li a:hover::before {
+  transform: scaleX(1);
+}
+
+section {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 100px;
+}
+
+section .contentBx {
+  position: relative;
+  max-width: 600px;
+  z-index: 1000;
+}
+
+section .contentBx h2 {
+  font-size: 60px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+section .contentBx p {
+  font-size: 18px;
+  color: rgb(160, 158, 158);
+}
+
+section .contentBx .countDown {
+  display: flex;
+  margin: 20px 0;
+}
+
+section .contentBx .countDown .time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #fff;
+  margin-right: 20px;
+  font-size: 48px;
+  min-width: 110px;
+  font-weight: 700;
+  padding: 10px 5px 15px;
+  border-radius: 4px;
+  color: #ff0083;
+}
+
+section .contentBx .countDown .time span {
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #312747;
+}
+
+section .contentBx a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  background: #312747;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  padding: 15px 35px;
+  border-radius: 40px;
+  transition: 0.2s ease-in-out;
+  border: 2px solid #ff0083;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+section .contentBx a:hover {
+  background: #ff0083;
+  transform: translateY(-5px);
+  border: 2px solid transparent;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+section .imgBx img {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 100px;
+  z-index: 2;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.action {
+  position: fixed;
+  bottom: 22px;
+  left: 22px;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100000;
+  
+}
+
+.action span {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff0083;
+  font-size: 2em;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.action.active span {
+  transform: rotate(135deg);
+  color: #bd081c;
+}
+
+.action ul {
+  position: absolute;
+  bottom: -9px;
+  margin-left: 20px;
+  background: #fff;
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+
+  left: 35px;
+  transition: 0.2s ease-in-out;
+  /* opacity: 0;
+  visibility: hidden; */
+  transform: scale(0);
+  transform-origin: left;
+  z-index: 10000000;
+}
+
+.action ul li {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 5px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+i {
+  margin-right: 8px;
+  font-size: 30px;
+  transition: 0.5s;
+}
+
+.action.active ul {
+  transition: 1s cubic-bezier(0.08, 1.71, 0.58, 0.96);
+  /* opacity: 1;
+  visibility: visible; */
+  transform: scaleX(1);
+}
+
+.action ul li:nth-child(1) i {
+  color: #3b5999;
+}
+
+.action ul li:nth-child(2) i {
+  color: #55acee;
+}
+
+.action ul li:nth-child(3) i {
+  color: #e4405f;
+}
+
+.action ul li:nth-child(4) i {
+  color: #bd081c;
+}
+
+.action ul li:nth-child(5) i {
+  color: #0077b5;
+}
+
+.action ul li:hover i {
+  transform: scale(1.3);
+}
+
+.newsletter {
+  position: fixed;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  padding: 60px;
+  background: #fff;
+  z-index: 1000000;
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+  box-shadow: 0 0 0 100vh rgba(49, 39, 71, .95);
+}
+
+.newsletter h2 {
+  font-size: 48px;
+  color: #312747;
+}
+
+.newsletter p {
+  font-size: 20px;
+  color: #312747;
+}
+
+.newsletter .inputBox {
+  margin-top: 20px;
+}
+
+.newsletter .inputBox input {
+  padding: 10px;
+  outline: none;
+  width: 300px;
+  font-size: 18px;
+  border: 1px solid #999;
+  border-radius: 40px;
+}
+
+.newsletter .inputBox input[type='submit'] {
+  position: absolute;
+  right: 150px;
+  padding: 10px;
+  outline: none;
+  width: 140px;
+  color: #fff;
+  background: #ff0083;
+  border: 1px solid #999;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+.newsletter.popUp {
+  visibility: visible;
+  opacity: 1;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #bd081c;
+  transition: .5s;
+}
+
+.close:hover i {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 991px) {
+  section {
+    flex-direction: column;
+    padding-top: 150px;
+    height: auto;
+  }
+
+  section .contentBx {
+    max-width: 100%;
+  }
+
+  section .imgBx img {
+    margin-top: -50px;
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    padding: 20px 50px;
+  }
+
+  section {
+    flex-direction: column;
+    padding: 150px 20px 50px;
+    height: auto;
+  }
+
+  section .contentBx h2 {
+    font-size: 40px;
+  }
+  section .contentBx p {
+    font-size: 16px;
+  }
+
+  section .contentBx .countDown .time {
+    font-size: 30px;
+    min-width: 70px;
+    margin-right: 10px;
+  }
+
+  section .contentBx .countDown .time span {
+    margin-top: -10px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  section .contentBx a {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+
+
+  .newsletter {
+    width: 488px;
+    padding: 38px;
+
+}
+
+.newsletter h2 {
+  font-size: 37px;
+}
+
+.newsletter p {
+  font-size: 16px;
+}
+
+.newsletter .inputBox input {
+  padding: 8px;
+  width:300px;
+  font-size: 14px;
+}
+
+.newsletter .inputBox input[type='submit'] {
+  right: 144px;
+  padding: 8px;
+  width: 111px;
+}
+
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+  i {
+    font-size: 16px;
+  }
+
+  .action ul li{
+    margin: 0 2px;
+    padding: 0 5px;
+  }
+    .action span {
+      font-size: 26px;
+    }
+    .action {
+      width: 40px;
+      height: 40px;
+    }
+  .action ul {
+    padding: 10px;
+    bottom: 2px;
+    left: 25px;
+  }
+
+  .newsletter {
+    width: 380px;
+    padding: 38px;
+
+}
+
+.newsletter h2 {
+  font-size: 33px;
+}
+
+.newsletter p {
+  font-size: 14px;
+}
+
+.newsletter .inputBox input {
+  padding: 8px;
+  width: 300px;
+  font-size: 14px;
+}
+
+.newsletter .inputBox input[type='submit'] {
+  right: 20px;
+  padding: 8px;
+  width: 111px;
+}
+
+
+}
+
+@media (max-width: 380px) {
+  .action {
+    bottom:42px;
+    left: 15;
+  }
+  .newsletter {
+    width: 220px;
+    padding: 38px;
+    height: 240px;
+
+}
+
+.newsletter h2 {
+  font-size: 24px;
+}
+
+.newsletter p {
+  font-size: 12px;
+}
+
+.newsletter .inputBox input {
+  padding: 8px;
+  width: 160px;
+  margin-left: -9px;
+  font-size: 14px;
+}
+
+.newsletter .inputBox input[type='submit'] {
+  display: block;
+  right: 20px;
+  padding: 8px;
+  width: 111px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 1px;
+  margin-top: 10px;
+}
+
+
+}
